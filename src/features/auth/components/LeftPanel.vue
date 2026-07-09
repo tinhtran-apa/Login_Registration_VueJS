@@ -5,7 +5,7 @@ const contents = ref(["Encrypted credentials", "Email verification built-in", "P
 
 <template>
   <div
-    class="bg-gradient-to-br from-[#6c63ff] via-[#4f46e5] to-[#7c6af7] p-10 rounded-s-2xl relative flex flex-col justify-between max-w-[376.3125px] w-full"
+    class="bg-gradient-to-br from-[#6c63ff] via-[#4f46e5] to-[#7c6af7] p-10 rounded-s-2xl relative hidden sm:flex flex-col justify-between lg:max-w-[376.3125px] lg:w-full lg:p-10 sm:w-[248px] sm:px-[15px]"
   >
     <div
       class="absolute top-[96px] left-[156.31px] rounded-[16777200px] opacity-10 bg-[#ffffff80] w-[180px] h-[180px]"

@@ -109,7 +109,6 @@ const errorPolicy = computed(() => {
 
     <div class="flex justify-center items-center gap-[1.66px]">
       <span class="text-sm text-secondary leading-5 tracking-normal">Already have an account ?</span>
-
       <RouterLink class="text-tertiary text-[16px] leading-6 tracking-normal font-semibold" to="/login">
         Sign In
       </RouterLink>

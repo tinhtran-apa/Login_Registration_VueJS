@@ -16,25 +16,23 @@ const props = defineProps({
     default: "",
   },
 });
-const checkSlot = computed(() => {
-  return slots.default ? "" : "hidden";
-});
 const checkSocial = computed(() => {
-  return props.socials.length > 0 ? "" : "hidden";
+  return props.socials.length > 0 ? true : false;
 });
 </script>
 
 <template>
-  <div v-if="props.icon" class="p-[13px] rounded-2xl bg-[#ede9fe] w-fit flex mb-5">
+  <div v-if="props.icon" class="mx-auto sm:mx-0 p-[13px] rounded-2xl bg-[#ede9fe] w-fit flex mb-5">
     <img :src="props.icon" alt="" />
   </div>
-  <div class="pb-5">
+
+  <div class="pb-5 text-center sm:text-left">
     <h4 class="text-[24px] leading-8 font-bold tracking-normal">{{ props.header.title }}</h4>
 
     <span class="text-sm pt-1 text-secondary tracking-normal leading-5">{{ props.header.des }}</span>
   </div>
 
-  <div :class="['flex gap-3 pb-5', checkSocial]">
+  <div v-if="checkSocial" class="flex gap-3 pb-5">
     <template v-for="social in props.socials" :key="social.title">
       <Button class="!border !border-[#e5e8eb] !px-[4.96px] !py-[10px] !bg-primary gap-2">
         <img :src="social.icon" alt="" />
@@ -46,7 +44,7 @@ const checkSocial = computed(() => {
     </template>
   </div>
 
-  <div :class="['flex justify-center items-center gap-3', checkSlot]">
+  <div v-if="slots.default" class="flex justify-center items-center gap-3">
     <hr class="h-[1px] w-full" />
 
     <span class="text-xs text-secondary tracking-normal leading-5 whitespace-nowrap">

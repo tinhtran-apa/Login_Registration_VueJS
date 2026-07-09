@@ -34,39 +34,54 @@ const focusError = (field) => {
 };
 
 const showEye = (field) => {
-  return field === "password" || field === "confirmPassword" ? "block" : "hidden";
+  return field === "password" || field === "confirmPassword" ? true : false;
 };
 
+const checkInputOtp = computed(() => {
+  let check = 0;
+  props.forms.forEach((form) => {
+    if (form.type === "number") {
+      check++;
+    }
+  });
+  if (check == props.forms.length) {
+    return true;
+  }
+  return false;
+});
 </script>
 <template>
   <form class="pb-5" @submit.prevent="emit('submit')">
-    <template v-for="form in props.forms" :key="form.id">
-      <div class="flex flex-col gap-1.5">
-        <div class="flex justify-between items-center">
-          <Label :for="form.id">{{ form.title }}</Label>
+    <div :class="{ 'grid grid-cols-6 gap-2': checkInputOtp }">
+      <template v-for="form in props.forms" :key="form.id">
+        <div :class="['flex flex-col', {'gap-1.5' : !checkInputOtp}]">
+          <div class="flex justify-between items-center">
+            <Label :for="form.id">{{ form.title }}</Label>
 
-          <span class="text-red-500 text-xs leading-5 tracking-normal">{{ props.errors[form.id] }}</span>
-        </div>
+            <span class="text-red-500 text-xs leading-5 tracking-normal">{{ props.errors[form.id] }}</span>
+          </div>
 
-        <div class="relative">
-          <Input
-            v-model="model[form.id]"
-            :class="['mb-4', focusError(props.errors[form.id])]"
-            :type="form.type"
-            :id="form.id"
-            :placeholder="form.placeholder"
-            @input="emit('clearError', form.id)"
-          />
-          <button
-            @click="emit('show-password', form.id)"
-            type="button"
-            :class="['absolute right-3 top-[10.5px] bg-transparent border-0', showEye(form.id)]"
-          >
-            <img :src="eyeIcon" alt="" />
-          </button>
+          <div class="relative">
+            <Input
+              v-model="model[form.id]"
+              :class="['mb-4', focusError(props.errors[form.id]), { 'h-[48px]': checkInputOtp }]"
+              :type="form.type"
+              :id="form.id"
+              :placeholder="form.placeholder"
+              @input="emit('clearError', form.id)"
+            />
+            <button
+              v-if="showEye(form.id)"
+              @click="emit('show-password', form.id)"
+              type="button"
+              class="absolute right-3 top-[10.5px] bg-transparent border-0"
+            >
+              <img :src="eyeIcon" alt="" />
+            </button>
+          </div>
         </div>
-      </div>
-    </template>
+      </template>
+    </div>
     <div v-if="slots.default" class="flex justify-between items-center pb-5"><slot /></div>
 
     <Button type="submit">{{ props.submit }}</Button>
