@@ -5,39 +5,40 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage.vue";
 import ResetPasswordPage from "./pages/ResetPasswordPage.vue";
 import VerifyEmailPage from "./pages/VerifyEmailPage.vue";
 import SuccessPage from "./pages/SuccessPage.vue";
+import { ROUTES } from "@/constants/routes.js";
 export default [
   {
     path: "/",
-    redirect: "/login",
+    redirect: ROUTES.LOGIN,
     component: DefaultLayout,
     children: [
       {
-        path: "login",
+        path: ROUTES.LOGIN,
         name: "login",
         component: LoginPage,
       },
       {
-        path: "register",
+        path: ROUTES.REGISTER,
         name: "register",
         component: RegisterPage,
       },
       {
-        path: "forgot-password",
+        path: ROUTES.FORGOT_PASSWORD,
         name: "forgot-password",
         component: ForgotPasswordPage,
       },
       {
-        path: "reset-password",
+        path: ROUTES.RESET_PASSWORD,
         name: "reset-password",
         component: ResetPasswordPage,
       },
       {
-        path: "verify-email",
+        path: ROUTES.VERIFY_EMAIL,
         name: "verify-email-password",
         component: VerifyEmailPage,
       },
       {
-        path: "success",
+        path: ROUTES.SUCCESS,
         name: "success",
         component: SuccessPage,
       },

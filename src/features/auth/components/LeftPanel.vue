@@ -5,15 +5,11 @@ const contents = ref(["Encrypted credentials", "Email verification built-in", "P
 
 <template>
   <div
-    class="bg-gradient-to-br from-[#6c63ff] via-[#4f46e5] to-[#7c6af7] p-10 rounded-s-2xl relative hidden sm:flex flex-col justify-between lg:max-w-[376.3125px] lg:w-full lg:p-10 sm:w-[248px] sm:px-[15px]"
+    class="bg-gradient-to-br from-gradient-start via-gradient-via to-gradient-end p-10 rounded-s-2xl relative hidden sm:flex flex-col justify-between lg:max-w-[376.3125px] lg:w-full lg:p-10 sm:w-[248px] sm:px-[15px]"
   >
-    <div
-      class="absolute top-[96px] left-[156.31px] rounded-[16777200px] opacity-10 bg-[#ffffff80] w-[180px] h-[180px]"
-    ></div>
+    <div class="absolute top-[96px] left-[156.31px] rounded-full opacity-10 bg-[#ffffff80] w-[180px] h-[180px]"></div>
 
-    <div
-      class="absolute top-[32px] left-[156.31px] rounded-[16777200px] opacity-20 bg-[#ffffff59] w-[280px] h-[280px]"
-    ></div>
+    <div class="absolute top-[32px] left-[156.31px] rounded-full opacity-20 bg-[#ffffff59] w-[280px] h-[280px]"></div>
 
     <div class="flex justify-start items-center gap-3">
       <div class="flex p-2 shadow-[0px 1px 3px 0px #0000001a] rounded-xl bg-primary">
@@ -36,7 +32,7 @@ const contents = ref(["Encrypted credentials", "Email verification built-in", "P
     <div class="flex flex-col gap-3">
       <template v-for="content in contents" :key="content.key">
         <div class="flex bg-transparent gap-2">
-          <div class="flex self-center p-0.5 rounded-[16777200px] border border-[#ffffff66]">
+          <div class="flex self-center p-0.5 rounded-full border border-[#ffffff66]">
             <img src="../../../assets/icons/check.svg" alt="" />
           </div>
 

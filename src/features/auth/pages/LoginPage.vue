@@ -8,6 +8,9 @@ import { RouterLink } from "vue-router";
 import CheckBox from "@/components/common/checkbox.vue";
 import { clearError, validateLogin } from "../validators/authValidates.js";
 import { showPassword } from "../utils/showPassword.js";
+import { ROUTES } from "@/constants/routes.js";
+import googleIcon from "@/assets/icons/google.svg"
+import githubIcon from "@/assets/icons/github.svg"
 const header = {
   title: "Welcome Back",
   des: "Sign in to continue to your workspace",
@@ -31,11 +34,11 @@ const forms = ref([
 const socials = [
   {
     title: "Continue with Google",
-    icon: "/src/assets/icons/google.svg",
+    icon: googleIcon,
   },
   {
     title: "Continue with Github",
-    icon: "/src/assets/icons/github.svg",
+    icon: githubIcon,
   },
 ];
 
@@ -83,7 +86,7 @@ const handleShowPassword = (field) => {
         <span class="text-secondary tracking-normal">Remember me</span>
       </div>
 
-      <RouterLink to="/forgot-password" class="text-tertiary text-sm leading-5 font-semibold tracking-normal"
+      <RouterLink :to="ROUTES.FORGOT_PASSWORD" class="text-tertiary text-sm leading-5 font-semibold tracking-normal"
         >Forgot your password ?</RouterLink
       >
     </AuthForm>
@@ -91,7 +94,7 @@ const handleShowPassword = (field) => {
     <div class="flex justify-center items-center gap-[1.66px]">
       <span class="text-sm text-secondary leading-5 tracking-normal">Dont't have an account?</span>
 
-      <RouterLink class="text-tertiary text-[16px] leading-6 tracking-normal font-semibold" to="/register">
+      <RouterLink class="text-tertiary text-[16px] leading-6 tracking-normal font-semibold" :to="ROUTES.REGISTER">
         Sign up
       </RouterLink>
     </div>

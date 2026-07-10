@@ -44,7 +44,7 @@ const showEye = (field) => {
 const checkInputOtp = computed(() => {
   let check = 0;
   props.forms.forEach((form) => {
-    if (form.type === "number") {
+    if (form.isOtp) {
       check++;
     }
   });

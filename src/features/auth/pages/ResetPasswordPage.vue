@@ -6,7 +6,9 @@ import LeftPanel from "../components/LeftPanel.vue";
 import RightPanel from "../components/RightPanel.vue";
 import arrowLeft from "@/assets/icons/arrow-left.svg";
 import lockIcon from "@/assets/icons/lock.svg";
-import { validateResetPassword } from "../validators/authValidates.js";
+import { clearError, validateResetPassword } from "../validators/authValidates.js";
+import { ROUTES } from "@/constants/routes.js";
+import { showPassword } from "../utils/showPassword.js";
 
 const header = {
   title: "Set a new password",
@@ -68,7 +70,7 @@ const handleClearError = (field) => {
     <div class="flex justify-center items-center gap-[1.66px]">
       <RouterLink
         class="flex items-center justify-center gap-1.5 text-tertiary text-[16px] leading-6 tracking-normal font-semibold"
-        to="/login"
+        :to="ROUTES.LOGIN"
       >
         <img :src="arrowLeft" alt="" />
 

@@ -37,7 +37,7 @@ const checkSocial = computed(() => {
       <Button class="!border !border-[#e5e8eb] !px-[4.96px] !py-[10px] !bg-primary gap-2">
         <img :src="social.icon" alt="" />
 
-        <span class="text-[#111827] text-sm font-semibold text-center leading-5 tracking-normal">{{
+        <span class="text-text-main text-sm font-semibold text-center leading-5 tracking-normal">{{
           social.title
         }}</span>
       </Button>

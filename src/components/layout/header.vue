@@ -1,14 +1,15 @@
 <script setup>
+import { ROUTES } from "@/constants/routes";
 import { ref, Transition } from "vue";
 import { useRoute } from "vue-router";
 
 const heads = [
-  { title: "1 · Login", path: "/login" },
-  { title: "2 · Register", path: "/register" },
-  { title: "3 · Forgot Password", path: "/forgot-password" },
-  { title: "4 · Reset Password", path: "/reset-password" },
-  { title: "5 · Verify Email", path: "/verify-email" },
-  { title: "6 · Success", path: "/success" },
+  { title: "1 · Login", path: ROUTES.LOGIN },
+  { title: "2 · Register", path: ROUTES.REGISTER },
+  { title: "3 · Forgot Password", path: ROUTES.FORGOT_PASSWORD },
+  { title: "4 · Reset Password", path: ROUTES.RESET_PASSWORD },
+  { title: "5 · Verify Email", path: ROUTES.VERIFY_EMAIL },
+  { title: "6 · Success", path: ROUTES.SUCCESS },
 ];
 
 const menuMobile = ref(false);
@@ -16,7 +17,7 @@ const menuMobile = ref(false);
 const route = useRoute();
 
 const checkPath = (field) => {
-  return route.path == field ? "sm:rounded-[16777200px] px-3 py-1 bg-tertiary text-primary" : "";
+  return route.path == field ? "sm:rounded-full px-3 py-1 bg-tertiary text-primary" : "";
 };
 
 const handleShowMenu = () => {
@@ -25,8 +26,11 @@ const handleShowMenu = () => {
 </script>
 <template>
   <header class="relative">
-    <nav class="flex items-center gap-2.5 text-secondary h-[49px] border-b border-[#e5e7eb] pt-3 pb-[13px] pl-4">
-      <button @click="handleShowMenu" class="bg-transparent border-0 sm:hidden block transition-transform duration-200 active:scale-95">
+    <nav class="flex items-center gap-2.5 text-secondary h-[49px] border-b border-border pt-3 pb-[13px] pl-4">
+      <button
+        @click="handleShowMenu"
+        class="bg-transparent border-0 sm:hidden block transition-transform duration-200 active:scale-95"
+      >
         <img src="../../assets/icons/bars.svg" alt="" />
       </button>
 
